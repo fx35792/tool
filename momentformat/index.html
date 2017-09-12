@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>time 格式</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/moment.js/2.18.1/moment.min.js"></script>
+	<script src="time.js"></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		body{background: #efefef;font-size:14px;font-family: 'Microsoft Yahei'}
+		.main{width: 800px;margin:0 auto;background: #fff;text-indent: 1em;background: #fff;}
+		h2{background: #acf;color: #000;padding: 10px 0;font-size:16px;}
+		p{height: 40px;line-height: 40px}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h2>将系统时间转化为毫秒值</h2>
+		<p class="p1"></p>
+		<h2>格式一（获取年月日）：YYYY/MM/DD</h2>
+		<p class="p2"></p>
+		<h2>格式二（获取时分秒）：HH:mm:ss</h2>
+		<p class="p3"></p>
+		<h2>格式三（获取年月日时分秒）：YYYY/MM/DD HH:mm:ss</h2>
+		<p class="p4"></p>
+	</div>
+	<script type="text/javascript">
+		//第一步获取系统时间
+		var date = new Date();
+
+		var transferDate = toMilliseconds(date);
+		$('.p1').text(transferDate);//将系统时间转化为毫秒值
+		$('.p2').text(formatTime(transferDate));//获取年月日
+		$('.p3').text(formatSecond(transferDate));//获取时分秒
+		$('.p4').text(formatToMilliseconds(transferDate));//获取年月日时分秒
+	</script>
+</body>
+</html>
